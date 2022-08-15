@@ -14,7 +14,7 @@ def change_termin():
     driver.get("https://otv.verwalt-berlin.de/ams/TerminBuchen?lang=en")
     time.sleep(4)
     driver.find_element(By.LINK_TEXT,"Change Appointment").click()
-    time.sleep(6)
+    time.sleep(10)
     driver.find_element(By.ID,"xi-tf-948").send_keys(os.environ.get("FULL_NAME"))
     driver.find_element(By.ID,"xi-tf-949").send_keys(os.environ.get("LAST_NAMES"))
     driver.find_element(By.ID,"xi-tf-951").send_keys(os.environ.get("PROCESS_NUM"))
@@ -22,11 +22,14 @@ def change_termin():
     driver.find_element(By.ID,"xi-tf-950").send_keys(os.environ.get("BD"))
     driver.find_element(By.ID,"applicationForm:managedForm:proceed").click()
 
-    time.sleep(20)
+    for i in range(0, 20):
+         time.sleep(15)
+         driver.refresh()
+         print(f'Refresh #{i+1}')
 
-    driver.refresh()
+    
 
-    time.sleep(20)
+    
 
 
 change_termin()
