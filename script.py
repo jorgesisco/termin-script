@@ -13,12 +13,13 @@ from selenium.webdriver.support.select import Select
 
 driver = webdriver.Chrome()
 
+
 #Funtion to Fill info for changing Termin!
 def change_termin():
     driver.get("https://otv.verwalt-berlin.de/ams/TerminBuchen?lang=en")
     time.sleep(3)
-    driver.find_element(By.LINK_TEXT,"Delete Appointment").click()
-    time.sleep(4)
+    driver.find_element(By.LINK_TEXT,"Change Appointment").click()
+    time.sleep(6)
     driver.find_element(By.ID,"xi-tf-948").send_keys(os.environ.get("FULL_NAME"))
     driver.find_element(By.ID,"xi-tf-949").send_keys(os.environ.get("LAST_NAMES"))
     driver.find_element(By.ID,"xi-tf-951").send_keys(os.environ.get("PROCESS_NUM"))
